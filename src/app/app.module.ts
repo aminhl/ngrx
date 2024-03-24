@@ -19,6 +19,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { metaReducers, reducers } from "./reducers";
 import { AuthGuard } from "./auth/auth.guard";
+import { EffectsModule } from "@ngrx/effects";
 
 const routes: Routes = [
   {
@@ -49,6 +50,7 @@ const routes: Routes = [
     AuthModule.forRoot(),
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([]),
   ],
   bootstrap: [AppComponent],
 })
