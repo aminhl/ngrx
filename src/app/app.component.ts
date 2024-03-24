@@ -11,6 +11,7 @@ import {
 import { AppState } from "./reducers";
 import { isLoggedIn, isLoggedOut } from "./auth/auth.selectors";
 import { Observable } from "rxjs";
+import { logout } from "./auth/auth.actions";
 
 @Component({
   selector: "app-root",
@@ -47,5 +48,7 @@ export class AppComponent implements OnInit {
     this.isLoggedOut$ = this.store.pipe(select(isLoggedOut));
   }
 
-  logout() {}
+  logout() {
+    this.store.dispatch(logout());
+  }
 }
